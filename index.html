@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Portfolio Website</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/c4254e24a8.js"crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <img src="images/mylogo.png" class="logo">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Servies</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-text">
+                    <p>
+                        Software developer
+                    </p>
+                    <h1>Hi, I am <span>Simon Ndacha</span><br> from Nairobi, Kenya</h1>
+                </div>
+            </div>
+        </div>
+<!-- --------------about--------------------- -->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/user-pic.jpg">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title"> About Me</h1>
+                        <p>Simon is a developer that is dedicated to improving skills through hands-on learning and development work.<br>
+                             He has internship experience in development work and holds a bachelor’s degree in Business and Information Technology.<br> 
+                             Adept at mobile and web technologies, and development works using Python, JavaScript, Kotlin.<br>
+                            Complex problem-solver with analytical and driven mindset. Dedicated to achieving demanding development objectives according to tight schedules while producing impeccable code.<br>
+                             Well-organized and collaborative team player with strong communication and analytical abilities.</p>
+                             <div class="tab-titles">
+                                 <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                                 <p class="tab-links"onclick="opentab('experience')">Experience</p>
+                                 <p class="tab-links"onclick="opentab('education')">Education</p>
+                             </div>
+                             <div class="tab-contents active-tab" id="skills">
+                                 <ul>
+                                     <li><span>Web Development</span><br>Designing web and desktop applications</li>
+                                     <li><span>App Development</span><br>Building android applications</li>
+                                     <li><span>Data analysis</span><br>Building predictive and descriptive models, Machine Learning</li>
+
+                                 </ul>
+                             </div>
+                             <div class="tab-contents" id="experience">
+                                <ul>
+                                    <li><span>2022-Current</span><br>Freelance developer at Tangoo Proffesional Networks</li>
+                                    <li><span>2022</span><br>Web developer internship at Bafunde technologies</li>
+                                    <li><span>2021</span><br>ICT assistant at Uwezo Fund Oversight Board</li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="tab-contents" id="education">
+                                <ul>
+                                    <li><span>2022</span><br>Android Development from Google Africa Development Scholarship</li>
+                                    <li><span>2022</span><br>BBIT from KCA University</li>
+                                    
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ----------------------------services-- ------------------------->
+        <div id="services">
+            <div class="container">
+                <h1 class="sub-title">My Services</h1>
+                <div class="services-list">
+                    <div>
+                        <i class="fa-solid fa-code"></i>
+
+                        <h2>Web design</h2>
+                        <p>Get a beautifully crafted web application for your business and self</p>
+                        <a href="#">learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-android"></i>
+
+                        <h2>App design</h2>
+                        <p>Get a beautifully crafted android application for your business and self needs</p>
+                        <a href="#">learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-light fa-chart-line-up"></i>
+                        
+                        <h2>Data Analysis</h2>
+                        <p>Get insights on your business to make better business decisions and maximise income</p>
+                        <a href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <script>
+        var tablinks= document.getElementsByClassName("tab-links");
+        var tabcontents= document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+
+        }
+    </script>
+
+    </body>
+</html>
