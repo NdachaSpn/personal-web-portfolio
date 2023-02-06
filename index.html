@@ -6,20 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Personal Portfolio Website</title>
         <link rel="stylesheet" href="style.css">
-        <script src="https://kit.fontawesome.com/c4254e24a8.js"crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/d5c1156b92.js"crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="header">
             <div class="container">
                 <nav>
                     <img src="images/mylogo.png" class="logo">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Servies</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Contact</a></li>
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Servies</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                     </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
                 </nav>
                 <div class="header-text">
                     <p>
@@ -95,13 +97,79 @@
                         <a href="#">learn more</a>
                     </div>
                     <div>
-                        <i class="fa-light fa-chart-line-up"></i>
+                        <i class="fa-solid fa-code-compare"></i>
                         
                         <h2>Data Analysis</h2>
                         <p>Get insights on your business to make better business decisions and maximise income</p>
                         <a href="#">learn more</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- ---portfolio- -->
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="sub-title">My Work</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="images/stock.png">
+                        <div class="layer">
+                            <h3>Forex Bitcoin price predictor </h3>
+                            <p>This tool analyses market trends and gives you a forecast 
+                                on what may happen in the market in the future.</p>
+                            <a href="#"><i class="fa-solid fa-square-up-right"></i></i>"</a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/whatsapp.png">
+                        <div class="layer">
+                            <h3>Whatsapp Bot </h3>
+                            <p>This tool automates whatsapp messages replies based on pre-defined responses.</p>
+                            <a href="#"><i class="fa-solid fa-square-up-right"></i></i>"</a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/android.png">
+                        <div class="layer">
+                            <h3>Candy coded application </h3>
+                            <p>This application is part of the google android developers cirriculum 
+                                to test different concepts and understanding.</p>
+                            <a href="#"><i class="fa-solid fa-square-up-right"></i></i>"</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn">See more</a>
+            </div>
+        </div>
+        <!-- -------contact------ -->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact me</h1>
+                        <p><i class="fa-solid fa-paper-plane"></i>simonndacha@gmail.com</p>
+                        <p><i class="fa-solid fa-square-phone"></i>+254757153661</p>
+                        <div class="social-icons">
+                            <a href=""> <i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/in/simon-ndacha-5b14aa22b"> <i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <a href="images/Simon Peter resume.pdf" download class="btn btn2">Download Resume</a>
+
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="7" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                        <span id="msg"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © Simon Ndacha</p>
             </div>
         </div>
 
@@ -122,6 +190,33 @@
 
         }
     </script>
+    <script>
+        var sidemenu=document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right="0";
+        }
+        function closemenu(){
+            sidemenu.style.right="-200px";
+        }
+    </script>
+    <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw-wk4AYgQeZSl5O9zOo3QlLorobgB2HttH9TEieMdpL8VwjPLVNOVujjQRYk3RD7T2/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg=document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML="message sent succesfully" 
+        setTimeout(function(){
+            msg.innerHTML= " "
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 
     </body>
 </html>
